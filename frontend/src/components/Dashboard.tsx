@@ -36,20 +36,23 @@ export default function Dashboard({
         </div>
       </header>
 
-      {/* Main Grid */}
-      <div className="flex-1 grid grid-cols-12 gap-3 p-3 min-h-0">
-        {/* Left: Live Stream */}
-        <div className="col-span-12 lg:col-span-4 xl:col-span-3 min-h-[400px] lg:min-h-0">
+      {/* Main Layout */}
+      <div className="flex-1 flex flex-col gap-3 p-3 min-h-0">
+        
+        {/* Live Stream Row */}
+        <div className="h-56 shrink-0">
           <LiveStream filings={filings} />
         </div>
-
-        {/* Right: 3 Segment Panels + Stats */}
-        <div className="col-span-12 lg:col-span-8 xl:col-span-9 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-3 min-h-0">
+        
+        {/* Segment Panels Row — each column scrolls independently */}
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-3 min-h-0 flex-1">
           {SEGMENTS.map((seg) => (
             <SegmentPanel key={seg} segment={seg} filings={filings} />
           ))}
           <StatsPanel filings={filings} />
         </div>
+
+        
       </div>
     </div>
   );

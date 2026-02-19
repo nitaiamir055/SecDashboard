@@ -11,16 +11,6 @@ const SEGMENT_CONFIG: Record<
     icon: "\u26A1",
     description: "8-K Material Events",
   },
-  insider: {
-    title: "Follow the Leader",
-    icon: "\uD83D\uDC64",
-    description: "Form 4 Insider Trading",
-  },
-  dilution: {
-    title: "Dilution Alert",
-    icon: "\u26A0\uFE0F",
-    description: "S-1/S-3 Offerings",
-  },
   whale: {
     title: "Whale Watch",
     icon: "\uD83D\uDC33",
@@ -41,9 +31,7 @@ export default function SegmentPanel({
   filings: Filing[];
 }) {
   const config = SEGMENT_CONFIG[segment];
-  const segmentFilings = filings
-    .filter((f) => f.segment === segment)
-    .slice(0, 8);
+  const segmentFilings = filings.filter((f) => f.segment === segment);
 
   const bullishCount = segmentFilings.filter(
     (f) => !f.is_pending && impactCategory(f.impact) === "bullish"
