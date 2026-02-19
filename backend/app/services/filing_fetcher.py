@@ -159,4 +159,4 @@ async def fetch_filing_document(
         # Generic: strip HTML tags
         text = re.sub(r"<[^>]+>", " ", raw)
         text = re.sub(r"\s+", " ", text).strip()
-        return (text[:4000], {"form_type": form_type})
+        return (text, {"form_type": form_type})

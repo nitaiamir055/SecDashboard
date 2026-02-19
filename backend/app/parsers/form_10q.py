@@ -114,4 +114,4 @@ def parse_10q(raw_html: str) -> tuple[str, dict]:
         "ixbrl_sample": dict(list(ixbrl_facts.items())[:10]),
     }
 
-    return (text[:20000], parsed_data)
+    return (text, parsed_data)

@@ -136,7 +136,7 @@ def _parse_entry(entry: dict, _cik_ticker: dict = None) -> dict | None:
 async def _poll_once(client: httpx.AsyncClient) -> list[dict]:
     """Fetch the single unified Atom feed, return list of parsed entries."""
     try:
-        resp = await client.get(FEED_URL, timeout=10)
+        resp = await client.get(FEED_URL, timeout=60)
         resp.raise_for_status()
         feed = feedparser.parse(resp.text)
         entries = []

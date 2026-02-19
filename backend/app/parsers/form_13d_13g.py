@@ -74,4 +74,4 @@ def parse_13d_13g(raw_html: str) -> tuple[str, dict]:
         "purpose_excerpt": purpose_text,
     }
 
-    return (text[:20000], parsed_data)
+    return (text, parsed_data)

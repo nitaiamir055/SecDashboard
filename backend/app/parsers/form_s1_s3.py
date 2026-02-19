@@ -82,4 +82,4 @@ def parse_s1_s3(raw_html: str) -> tuple[str, dict]:
         "use_of_proceeds": purposes if purposes else ["unspecified"],
     }
 
-    return (text[:20000], parsed_data)
+    return (text, parsed_data)

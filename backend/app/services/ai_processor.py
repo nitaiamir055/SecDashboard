@@ -68,7 +68,7 @@ def _build_consolidation_prompt(
         ticker=ticker or "N/A",
         form_type=form_type,
         parsed_data=json.dumps(parsed_data, indent=2, default=str),
-        raw_text=combined[:6000],
+        raw_text=combined,
     )
 
 
@@ -86,7 +86,7 @@ def _build_single_prompt(
         ticker=ticker or "N/A",
         form_type=form_type,
         parsed_data=json.dumps(parsed_data, indent=2, default=str),
-        raw_text=raw_text[:6000],
+        raw_text=raw_text,
     )
 
 
@@ -118,7 +118,7 @@ def _parse_response(text: str) -> dict:
 
     # Fallback: use the raw text as the summary
     return {
-        "summary": text[:300],
+        "summary": text,
         "impact": 0,
         "reasons": ["Could not parse structured SLM response"],
     }
