@@ -50,6 +50,8 @@ FORM_TO_SEGMENT: dict[str, str] = {
     "13G/A": "whale",
     "10-Q": "pulse",
     "10-Q/A": "pulse",
+    "10-K": "pulse",
+    "10-K/A": "pulse",
 }
 
 # Title regex: "424B2 - BofA Finance LLC (0001682472) (Filer)"
@@ -136,7 +138,7 @@ def _parse_entry(entry: dict, _cik_ticker: dict = None) -> dict | None:
 async def _poll_once(client: httpx.AsyncClient) -> list[dict]:
     """Fetch the single unified Atom feed, return list of parsed entries."""
     try:
-        resp = await client.get(FEED_URL, timeout=60)
+        resp = await client.get(FEED_URL, timeout=180)
         resp.raise_for_status()
         feed = feedparser.parse(resp.text)
         entries = []

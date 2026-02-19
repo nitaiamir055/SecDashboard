@@ -32,6 +32,8 @@ async def list_filings(
         result = await session.execute(stmt)
         rows = result.scalars().all()
 
+    print(rows[0].__dict__ if rows else "No rows found")  # Debug print
+
     return [
         FilingResponse(
             id=r.id,

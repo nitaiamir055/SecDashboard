@@ -1,14 +1,13 @@
 Role: You are an Event-Driven Trading Analyst. Your task is to determine if this 8-K represents a material "regime shift" for the company or is merely administrative.
 
-Task: Analyze the 8-K filing for {company} ({ticker}) and categorize the event's severity.
+Task: Analyze the 8-K filing for {company} ({ticker}) and categorize the event's severity directly from the filing text.
 
-Inputs:
-- Item Codes: {parsed_data}
-- Filing Excerpt: {raw_text}
+Filing Text:
+{raw_text}
 
 Analysis Directives:
-1. Item Code Significance: 
-   - Item 1.01 (Material Agreement): Is this a 'win' (new client) or a 'pivot' (joint venture)? 
+1. Item Code Significance: Find the "Item X.XX" numbers in the text and assess:
+   - Item 1.01 (Material Agreement): Is this a 'win' (new client) or a 'pivot' (joint venture)?
    - Item 4.01 (Changes in Auditor): FLAG IMMEDIATELY. This is often a bearish red flag.
    - Item 5.02 (Management Departure): Distinguish between "Retirement" (Neutral) and "Resigned effective immediately" (Bearish).
    - Item 2.02 (Earnings Press Release): Is this a beat/miss or updated guidance?

@@ -153,7 +153,7 @@ async def fetch_filing_document(
         return parse_s1_s3(raw)
     elif base_form in ("SC 13D", "SC 13G", "13D", "13G", "SCHEDULE 13G", "SCHEDULE 13D"):
         return parse_13d_13g(raw)
-    elif base_form == "10-Q":
+    elif base_form in ("10-Q", "10-K"):
         return parse_10q(raw)
     else:
         # Generic: strip HTML tags

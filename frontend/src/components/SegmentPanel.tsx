@@ -19,7 +19,7 @@ const SEGMENT_CONFIG: Record<
   pulse: {
     title: "Pulse Check",
     icon: "\uD83D\uDCC8",
-    description: "10-Q Quarterly Financials",
+    description: "10-Q/10-K Financials",
   },
 };
 
