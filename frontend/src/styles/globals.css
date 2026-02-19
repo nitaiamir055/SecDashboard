@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-950 text-gray-100 antialiased;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-700 rounded-full;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-gray-900 border border-gray-800 rounded-lg overflow-hidden flex flex-col;
+  }
+  .panel-header {
+    @apply px-4 py-2 border-b border-gray-800 flex items-center justify-between shrink-0;
+  }
+  .panel-body {
+    @apply p-3 overflow-y-auto flex-1;
+  }
+}

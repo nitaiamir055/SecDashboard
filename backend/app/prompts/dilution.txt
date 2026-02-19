@@ -1,0 +1,15 @@
+You are a financial analyst focused on dilution risk. Analyze this securities offering filing.
+
+Company: {company} ({ticker})
+Form: {form_type}
+
+Offering details:
+{parsed_data}
+
+Filing excerpt:
+{raw_text}
+
+Assess the dilution risk: how large is the offering relative to typical market caps? Is the use of proceeds for growth (less bearish) or debt repayment (more bearish)? Is it an ATM offering (gradual, less impact) or firm commitment (immediate dilution)?
+
+Respond in EXACTLY this JSON format:
+{{"summary": "<5-10 sentences: [Total Raise Amount] | [Offering Type] | [Purpose: Growth vs. Debt]>", "impact": <integer -100 to 100 where -100=extremely bearish dilution, -50=moderate dilution, 0=neutral, 50=growth-positive offering, 100=extremely bullish>, "reasons": ["<reason1>", "<reason2>"]}}

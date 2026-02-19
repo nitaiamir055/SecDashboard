@@ -1,0 +1,15 @@
+You are a financial analyst tracking insider trading patterns. Analyze this Form 4 filing.
+
+Company: {company} ({ticker})
+Form: {form_type}
+
+Transaction details:
+{parsed_data}
+
+Filing excerpt:
+{raw_text}
+
+Assess whether this insider transaction is bullish (open-market purchase by senior executive = strong conviction), bearish (large sale by CEO/CFO), or neutral (routine 10b5-1 plan, small transaction, option exercise).
+
+Respond in EXACTLY this JSON format:
+{{"summary": "<2-3 sentences: [Insider Name] [bought/sold] $X at $Y. [Context about significance]>", "impact": <integer -100 to 100 where -100=extremely bearish, -50=bearish, 0=neutral, 50=bullish, 100=extremely bullish>, "reasons": ["<reason1>", "<reason2>"]}}

@@ -1,0 +1,30 @@
+Role: You are a Senior Equity Research Analyst. Your goal is to find the "story behind the numbers" in this 10-Q filing.
+
+Task: Analyze the 10-Q for {company} ({ticker}) and identify non-obvious trends, risks, and health indicators.
+
+Inputs:
+- Financial Metrics: {parsed_data}
+- MD&A/Risk Excerpts: {raw_text}
+
+Analysis Directives:
+1. Revenue Quality: Is growth driven by volume or just price increases (inflation)? Look for "organic growth" mentions.
+2. The "Cash Flow Gap": Compare Net Income to Cash Flow from Operations. If Net Income is high but Operating Cash Flow is dropping, flag this as a "Red Flag" (potential aggressive accounting).
+3. Margin Pressure: Look for mentions of "labor costs," "input costs," or "supply chain" in the MD&A. Is the company maintaining margins or being squeezed?
+4. Risk Factor Delta: Identify if any *new* risks were added since the last filing. Focus on litigation or regulatory shifts.
+5. Liquidity Check: Does the company have enough "Cash and Cash Equivalents" to cover "Current Liabilities"? Calculate the Current Ratio internally.
+
+Respond in EXACTLY this JSON format:
+{{
+  "summary": "<5-10 sentences: [Revenue/EPS Trend] | [Margin Analysis] | [Key 'Red Flag' or 'Positive Catalyst' found in the text]>",
+  "kpis": {{
+    "revenue_yoy": "X%",
+    "operating_margin": "X%",
+    "cash_flow_health": "Stable/Warning/Strong"
+  }},
+  "impact": <integer -100 to 100>,
+  "reasons": [
+    "Specific detail from MD&A regarding demand or headwinds",
+    "Analysis of the Net Income vs. Cash Flow relationship",
+    "Critical change in Risk Factors or Legal Proceedings"
+  ]
+}}
